@@ -3,6 +3,7 @@ import '@/styles/globals.css';
 import Header from '@components/Header';
 import faviconImage from '@public/favicon/alien.png';
 import { Metadata } from 'next';
+import { DarkModeProvider } from '@/context/DarkModeContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,8 +23,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
-        {children}
+        <DarkModeProvider>
+          <Header />
+          {children}
+        </DarkModeProvider>
       </body>
     </html>
   );

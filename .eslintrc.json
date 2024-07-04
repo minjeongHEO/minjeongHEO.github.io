@@ -1,10 +1,20 @@
 {
-    "extends": "next/core-web-vitals",
-    "settings": {
-        "import/resolver": {
-            "node": {
-                "paths": ["src"]
-            }
+  "extends": "next/core-web-vitals",
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+        "alias": {
+          "map": [
+            ["@", "./src"],
+            ["@public", "./public"],
+            ["@app", "./src/app"],
+            ["@components", "./src/components"],
+            ["@lib", "./src/lib"]
+          ],
+          "extensions": [".js", ".jsx", ".ts", ".tsx"]
         }
+      }
     }
+  }
 }

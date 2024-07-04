@@ -19,6 +19,9 @@ const config = {
       },
     },
     extend: {
+      width: {
+        '44': '11rem',
+      },
       fontFamily: {
         apple: [
           'SF Pro KR',
@@ -36,6 +39,7 @@ const config = {
         ],
       },
       colors: {
+        testColor: 'var(--testColor)',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -96,6 +100,13 @@ const config = {
     function ({ addBase }: PluginAPI) {
       addBase({
         a: { textDecoration: 'none' },
+      });
+    },
+    function ({ addUtilities }: PluginAPI) {
+      addUtilities({
+        '.align-content-center': {
+          'align-content': 'center',
+        },
       });
     },
   ],

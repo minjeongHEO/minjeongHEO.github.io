@@ -30,11 +30,10 @@ export const DarkModeProvider: FC<DarkModeProviderProps> = ({ children }) => {
   const toggleDarkMode = () => setIsDarkMode((mode) => !mode);
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     const darkModeType = isDarkMode ? 'dark' : 'light';
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('theme', darkModeType);
-      document.body.className = darkModeType;
-    }
+    localStorage.setItem('theme', darkModeType);
+    document.body.className = darkModeType;
   }, [isDarkMode]);
 
   return <DarkModeContext.Provider value={{ isDarkMode, toggleDarkMode }}>{children}</DarkModeContext.Provider>;

@@ -2,10 +2,15 @@
 import React, { useContext, useEffect, useState } from 'react';
 import Image from 'next/image';
 import profileImg from '@public/쿵야.png';
-import { GithubOutlined, MoonOutlined, SearchOutlined, SunOutlined } from '@ant-design/icons';
 import '@/styles/globals.css';
 import { GITHUB_PROFILE_URL } from '@/utils/urls';
 import { DarkModeContext } from '@/context/DarkModeContext';
+import dynamic from 'next/dynamic';
+
+const GithubOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.GithubOutlined), { ssr: false });
+const SunOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.SunOutlined), { ssr: false });
+const MoonOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.MoonOutlined), { ssr: false });
+const SearchOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.SearchOutlined), { ssr: false });
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);

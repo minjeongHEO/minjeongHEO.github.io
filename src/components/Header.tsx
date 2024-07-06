@@ -5,29 +5,24 @@ import profileImg from '@public/쿵야.png';
 import '@/styles/globals.css';
 import { GITHUB_PROFILE_URL } from '@/utils/urls';
 import { DarkModeContext } from '@/context/DarkModeContext';
-import dynamic from 'next/dynamic';
-
-const GithubOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.GithubOutlined), { ssr: false });
-const SunOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.SunOutlined), { ssr: false });
-const MoonOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.MoonOutlined), { ssr: false });
-const SearchOutlined = dynamic(() => import('@ant-design/icons').then((mod) => mod.SearchOutlined), { ssr: false });
+import { GithubOutlined, MoonOutlined, SearchOutlined, SunOutlined } from '@ant-design/icons';
 
 export default function Header() {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
-    <header className="w-full h-20 bg-background text-foreground sticky top-0 left-0 pl-24 pr-24">
+    <header className="w-full min-w-96 h-16 bg-background text-foreground sticky top-0 left-0 pl-24 pr-24">
       <div className="w-full h-full flex justify-between px-6">
-        <a href="/" className="align-content-center">
+        <a href="/" className="w-10 align-content-center">
           <div className="flex flex-row justify-center items-center logo">
             <Image
               src={profileImg}
               alt="ProfileImage"
               // width={48}
               // height={48}
-              className="w-12 mr-4 rounded-full p-1"
+              className="w-12 mr-2 rounded-full "
             ></Image>
-            <span className="font-bold text-2xl font-foreground ">Woody.Tech</span>
+            <span className="font-extralight text-2xl font-foreground ">Woody.Tech</span>
           </div>
         </a>
 

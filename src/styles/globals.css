@@ -1,4 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;700&display=swap');
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'SF Pro Display';
+  src: url('/fonts/SF-Pro-Display-Bold.otf') format('opentype');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'AppleSDGothicNeo';
+  src: url('/fonts/AppleAppleSDGothicNeoNeoM.ttf') format('truetype');
+  font-weight: 400;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,7 +23,7 @@
 @layer base {
   :root {
     --mainColor: #46a334;
-    --testColor: #cc0000;
+    --testColor: #f7c8c8;
 
     --background: #ffffff;
     --foreground: #212121;
@@ -87,6 +104,9 @@
   }
   body {
     @apply bg-background text-foreground;
-    @apply font-apple;
+    font-family: 'SF Pro Display', 'AppleSDGothicNeo', sans-serif;
+  }
+  body:lang(ko) {
+    font-family: 'AppleSDGothicNeo', sans-serif;
   }
 }

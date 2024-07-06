@@ -23,20 +23,8 @@ const config = {
         '44': '11rem',
       },
       fontFamily: {
-        apple: [
-          'SF Pro KR',
-          'SF Pro Display',
-          'SF Pro Icons',
-          'Apple Gothic',
-          'HY Gulim',
-          'MalgunGothic',
-          'HY Dotum',
-          'Lexi Gulim',
-          'Helvetica Neue',
-          'Helvetica',
-          'Arial',
-          'sans-serif',
-        ],
+        apple: ['SF Pro Display', 'sans-serif'],
+        sandol: ['AppleSDGothicNeo', 'sans-serif'],
       },
       colors: {
         testColor: 'var(--testColor)',

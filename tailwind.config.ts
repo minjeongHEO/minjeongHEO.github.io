@@ -28,6 +28,7 @@ const config = {
       },
       colors: {
         testColor: 'var(--testColor)',
+        mainColor: 'var(--mainColor)',
         border: 'var(--border)',
         input: 'var(--input)',
         ring: 'var(--ring)',
@@ -42,31 +43,15 @@ const config = {
           DEFAULT: 'var(--secondary)',
           foreground: 'var(--secondary-foreground)',
         },
-        destructive: {
-          DEFAULT: 'var(--destructive)',
-          foreground: 'var(--destructive-foreground)',
-        },
-        muted: {
-          DEFAULT: 'var(--muted)',
-          foreground: 'var(--muted-foreground)',
-        },
-        accent: {
-          DEFAULT: 'var(--accent)',
-          foreground: 'var(--accent-foreground)',
-        },
-        popover: {
-          DEFAULT: 'var(--popover)',
-          foreground: 'var(--popover-foreground)',
-        },
-        card: {
-          DEFAULT: 'var(--card)',
-          foreground: 'var(--card-foreground)',
-        },
       },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      boxShadow: {
+        light: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)',
+        dark: '0 4px 6px -1px rgba(227, 227, 227, 0.1), 0 2px 4px -2px rgba(227, 227, 227, 0.1)',
       },
     },
   },

@@ -27,67 +27,34 @@
 
     --background: #ffffff;
     --foreground: #212121;
-
     --background-2: #f5f5f7;
-
-    --card: #ffffff;
-    --card-foreground: #212121;
-
-    --popover: #ffffff;
-    --popover-foreground: #212121;
-
     --primary: #1c1616;
     --primary-foreground: #f8f8f8;
-
     --secondary: #86868b;
     --secondary-foreground: #1c1616;
-
-    --muted: #f5f5f5;
-    --muted-foreground: #775555;
-
-    --accent: #f5f5f5;
-    --accent-foreground: #1c1616;
-
-    --destructive: #cc0000;
-    --destructive-foreground: #f8f8f8;
-
     --border: #eaeaea;
     --input: #eaeaea;
     --ring: #212121;
-
     --radius: 0.5rem;
+
+    --shadowColor-light: rgba(0, 0, 0, 0.1);
+    --shadowColor-dark: rgba(227, 227, 227, 0.1);
   }
 
   .dark {
     --background: #212121;
     --foreground: #f8f8f8;
-
     --background-2: #404040;
-
-    --card: #212121;
-    --card-foreground: #f8f8f8;
-
-    --popover: #212121;
-    --popover-foreground: #f8f8f8;
-
     --primary: #f8f8f8;
     --primary-foreground: #1c1616;
-
     --secondary: #86868b;
     --secondary-foreground: #f8f8f8;
-
-    --muted: #281e1e;
-    --muted-foreground: #543c3c;
-
-    --accent: #281e1e;
-    --accent-foreground: #f8f8f8;
-
-    --destructive: #4f0000;
-    --destructive-foreground: #f8f8f8;
-
     --border: #281e1e;
     --input: #281e1e;
     --ring: #bfbfbf;
+
+    --shadowColor-light: rgba(0, 0, 0, 0.1);
+    --shadowColor-dark: rgba(227, 227, 227, 0.1);
   }
 }
 
@@ -103,9 +70,12 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
   }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'SF Pro Display', 'AppleSDGothicNeo', sans-serif;

@@ -1,0 +1,23 @@
+.postPreview {
+  @apply bg-background rounded-3xl p-5 shadow-sm transition-all duration-300 dark:shadow-dark;
+}
+
+.postPreview:hover {
+  @apply shadow-lg translate-x-4;
+}
+
+.categoryLabel {
+  @apply bg-mainColor rounded-3xl px-2 py-0.5 text-slate-50 text-sm inline-block mb-2;
+}
+
+.thumbnail {
+  @apply shadow-lg mr-2;
+}
+
+.title {
+  @apply text-3xl font-bold transition-colors duration-300;
+}
+
+.group:hover .title {
+  @apply text-mainColor;
+}

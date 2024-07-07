@@ -11,7 +11,7 @@ export default function Header() {
   const { isDarkMode, toggleDarkMode } = useContext(DarkModeContext);
 
   return (
-    <header className="w-full min-w-96 h-16 bg-background text-foreground sticky top-0 left-0 pl-24 pr-24">
+    <header className="w-full min-w-96 h-16 bg-background text-foreground sticky top-0 left-0 pl-24 pr-24 z-50">
       <div className="w-full h-full flex justify-between px-6">
         <a href="/" className="w-10 align-content-center">
           <div className="flex flex-row justify-center items-center logo">

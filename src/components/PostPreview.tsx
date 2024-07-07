@@ -2,10 +2,11 @@ import { Post } from '@/lib/posts';
 import Image from 'next/image';
 import React from 'react';
 import styles from './PostPreview.module.css';
+import Link from 'next/link';
 
 export default function PostPreview({ slug, category, desc, date, thumbnail, title, content, url }: Post) {
   return (
-    <a href={url}>
+    <Link href={url}>
       <div className={`${styles.postPreview} group`}>
         <span className={styles.categoryLabel}>{category}</span>
         <div className="flex flex-row justify-start items-center mb-3">
@@ -16,6 +17,6 @@ export default function PostPreview({ slug, category, desc, date, thumbnail, tit
         <p className="mb-2">{content.slice(0, 100)}...</p>
         <span className="block mb-2">{new Date(date).toLocaleDateString()}</span>
       </div>
-    </a>
+    </Link>
   );
 }

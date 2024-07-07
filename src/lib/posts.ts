@@ -21,7 +21,7 @@ const parsePost = async (postPath: string): Promise<Post> => {
   const { data, content } = matter(fileContents);
   const category = path.basename(path.dirname(postPath));
   const slug = path.basename(postPath, '.mdx');
-  const url = `/blog/${category}/${slug}`;
+  const url = `/posts/${category}/${slug}`;
 
   return {
     url,
@@ -73,4 +73,19 @@ export const getPostList = async (category?: string): Promise<Post[]> => {
   const posts = await Promise.all(postPaths.map((postPath) => parsePost(postPath)));
   const latestPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   return latestPosts;
+};
+
+// 특정 카테고리의 모든 포스트 목록 조회
+export const getCategoryPostList = async (category: string): Promise<Post[]> => {
+  const postPaths = await getCategoryPostPaths(category);
+  const posts = await Promise.all(postPaths.map((postPath) => parsePost(postPath)));
+  const latestPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return latestPosts;
+};
+
+// 특정 카테고리와 슬러그로 포스트 조회
+export const getPostByCategoryAndSlug = async (category: string, slug: string): Promise<Post> => {
+  const postPath = path.join(BASE_PATH, category, `${slug}.mdx`);
+  const post = await parsePost(postPath);
+  return post;
 };

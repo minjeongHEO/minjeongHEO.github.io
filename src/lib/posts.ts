@@ -15,16 +15,34 @@ export interface Post {
   content: string;
 }
 
+// MDX 파일 파싱 : abstract / detail 구분
+const parsePost = async (postPath: string): Promise<Post> => {
+  const fileContents = await fs.promises.readFile(postPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  const category = path.basename(path.dirname(postPath));
+  const slug = path.basename(postPath, '.mdx');
+  const url = `/blog/${category}/${slug}`;
+
+  return {
+    url,
+    category,
+    slug,
+    title: data.title,
+    date: data.date,
+    desc: data.desc,
+    thumbnail: data.thumbnail,
+    content,
+  };
+};
+
 // 모든 MDX 파일 경로 조회 (재귀적으로 탐색)
 const getAllPostPaths = async (folder: string): Promise<string[]> => {
   const entries = await fs.promises.readdir(folder, { withFileTypes: true });
+
   const paths = entries.map(async (entry) => {
     const res = path.resolve(folder, entry.name);
-    if (entry.isDirectory()) {
-      return getAllPostPaths(res);
-    } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      return [res];
-    }
+    if (entry.isDirectory()) return getAllPostPaths(res);
+    if (entry.isFile() && entry.name.endsWith('.mdx')) return [res];
     return [];
   });
 
@@ -45,9 +63,7 @@ const getCategoryPostPaths = async (category: string): Promise<string[]> => {
 
 // 포스트 경로 조회
 export const getPostPaths = async (category?: string): Promise<string[]> => {
-  if (category) {
-    return getCategoryPostPaths(category);
-  }
+  if (category) getCategoryPostPaths(category);
   return getAllPostPaths(BASE_PATH);
 };
 
@@ -55,25 +71,6 @@ export const getPostPaths = async (category?: string): Promise<string[]> => {
 export const getPostList = async (category?: string): Promise<Post[]> => {
   const postPaths = await getPostPaths(category);
   const posts = await Promise.all(postPaths.map((postPath) => parsePost(postPath)));
-  return posts;
-};
-
-// MDX 파일 파싱 : abstract / detail 구분
-const parsePost = async (postPath: string): Promise<Post> => {
-  const fileContents = await fs.promises.readFile(postPath, 'utf8');
-  const { data, content } = matter(fileContents);
-  const category = path.basename(path.dirname(postPath));
-  const slug = path.basename(postPath, '.mdx');
-  const url = `/blog/${category}/${slug}`;
-
-  return {
-    url,
-    category,
-    slug,
-    title: data.title,
-    date: data.date,
-    desc: data.desc,
-    thumbnail: data.thumbnail,
-    content,
-  };
+  const latestPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return latestPosts;
 };

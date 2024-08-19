@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function PostPreview({ slug, category, desc, date, thumbnail, title, content, url }: Post) {
   return (
-    <Link href={url}>
+    <Link href={`/posts/${category}/${slug}`}>
       <div className={`${styles.postPreview} group`}>
         <span className={styles.categoryLabel}>{category}</span>
         <div className="flex flex-row justify-start items-center mb-3">

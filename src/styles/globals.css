@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'SF Pro Display';
   src: url('/fonts/SF-Pro-Display-Regular.otf') format('opentype');
@@ -82,5 +84,11 @@
   }
   body:lang(ko) {
     font-family: 'AppleSDGothicNeo', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-roboto-mono {
+    font-family: 'Roboto Mono', monospace;
   }
 }

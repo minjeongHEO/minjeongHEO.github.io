@@ -26,7 +26,10 @@ export default function PostDetail({ post }: { post: Post }) {
             </h1>
           </span>
           <div className="mt-3 font-roboto-mono">
-            <span>// {post.desc}</span>
+            <span>
+              {'//'} {post.desc}
+            </span>
+
             <span> • {new Date(post.date).toLocaleDateString()}</span>
           </div>
         </section>

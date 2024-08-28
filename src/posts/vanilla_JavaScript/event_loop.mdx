@@ -265,7 +265,7 @@ async EventLoopControl() {
 }
 ```
 
-고차 함수(예: forEach, map, filter 등) 내에서 async/await를 사용하는 것이 "안 되는" 것은 아니지만,  
+고차 함수(예: forEach, map, filter 등) 내에서 `async/await`를 사용하는 것이 "안 되는" 것은 아니지만,  
 이렇게 사용했을 때 종종 기대와 다른 결과를 얻게 되는 주된 이유는
 
 고차 함수를 사용할 때 내부에 async 함수를 전달하면, 이 함수들은 각각 별도의 비동기 작업을 시작하는데  
